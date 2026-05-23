@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Echara Studio — Social Media & Content Marketing in Sydney</title>
+<meta name="description" content="Echara Studio is a Sydney-based marketing agency helping small local businesses drive foot traffic through social media, content, and real-world activations.">
+<meta name="keywords" content="social media agency Sydney, content marketing Sydney, event activation, small business marketing, Sydney marketing agency">
+<meta name="author" content="Echara Studio">
+
+<!-- Social sharing (Open Graph) -->
+<meta property="og:title" content="Echara Studio — Social Media & Content Marketing in Sydney">
+<meta property="og:description" content="Sydney agency turning attention into foot traffic through content and real-world activations.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://echarastudio.com">
+<meta property="og:image" content="https://echarastudio.com/images/hero.jpg">
+
+<!-- Twitter card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Echara Studio — Social Media & Content Marketing in Sydney">
+<meta name="twitter:description" content="Sydney agency turning attention into foot traffic.">
+<meta name="twitter:image" content="https://echarastudio.com/images/hero.jpg">
+
+<!-- Canonical + geo -->
+<link rel="canonical" href="https://echarastudio.com">
+<meta name="geo.region" content="AU-NSW">
+<meta name="geo.placename" content="Sydney">
+<link rel="icon" type="image/png" href="images/logo-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #080808;
+    --pink: #f5b8c4;
+    --yellow: #f5f0a0;
+    --blue: #a8c8f0;
+    --purple: #c8b8e8;
+    --border: rgba(255,255,255,0.1);
+    --mid: rgba(255,255,255,0.5);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--black); color: #fff; overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0.9rem 2.5rem;
+    background: var(--black);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 0; text-decoration: none; }
+  .nav-logo-icon { height: 40px; display: block; }
+  .nav-logo-text { height: 40px; display: block; margin-left: -6px; }
+  .nav-links { display: flex; align-items: center; gap: 0.4rem; }
+  .nav-pill {
+    font-size: 0.8rem; font-weight: 500; padding: 0.5rem 1.3rem;
+    border-radius: 999px; text-decoration: none; color: var(--black);
+    transition: opacity 0.2s, transform 0.15s;
+  }
+  .nav-pill:hover { opacity: 0.82; transform: translateY(-1px); }
+  .nav-pill.pink   { background: var(--pink); }
+  .nav-pill.yellow { background: var(--yellow); }
+  .nav-pill.blue   { background: var(--blue); }
+  .nav-pill.purple { background: var(--purple); }
+  .nav-cta {
+    font-size: 0.8rem; font-weight: 600; padding: 0.55rem 1.4rem;
+    border-radius: 999px; border: 1.5px solid #e8f560;
+    color: #e8f560; text-decoration: none; transition: background 0.2s, color 0.2s;
+  }
+  .nav-cta:hover { background: #e8f560; color: var(--black); }
+
+  /* HERO */
+  .hero {
+    position: relative; min-height: 100vh;
+    display: flex; align-items: flex-end; overflow: hidden;
+    padding-top: 110px;
+  }
+  .hero-img {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: center 20%;
+    filter: brightness(0.52);
+  }
+  .hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(to top, rgba(8,8,8,0.95) 0%, rgba(8,8,8,0.2) 60%, transparent 100%); }
+  .hero-content { position: relative; z-index: 2; padding: 0 3rem 5rem; max-width: 980px; }
+  .hero-eyebrow { display: inline-block; font-size: 0.82rem; color: rgba(255,255,255,0.85); margin-bottom: 1rem; font-style: italic; }
+  .hero-title {
+    font-family: 'Syne', sans-serif; font-size: clamp(2.6rem, 8vw, 6.5rem);
+    line-height: 0.95; font-weight: 800; text-transform: uppercase;
+    color: #fff; margin-bottom: 1rem;
+  }
+  .hero-title .accent { color: var(--pink); }
+  .hero-sub {
+    font-size: 1rem; font-weight: 300; color: rgba(255,255,255,0.7);
+    max-width: 480px; line-height: 1.65; margin-bottom: 2.2rem;
+  }
+  .hero-pills { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+  .hero-btn {
+    font-size: 0.82rem; font-weight: 500; padding: 0.75rem 1.8rem;
+    border-radius: 999px; text-decoration: none; color: var(--black);
+    transition: opacity 0.2s, transform 0.15s;
+  }
+  .hero-btn:hover { opacity: 0.85; transform: translateY(-2px); }
+  .hero-btn.pink { background: var(--pink); }
+
+  /* SECTION CTA */
+  .section-cta {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    font-size: 0.82rem; font-weight: 500; color: var(--black);
+    padding: 0.7rem 1.5rem; border-radius: 999px;
+    text-decoration: none; transition: opacity 0.2s, transform 0.15s;
+    margin-top: 3rem;
+  }
+  .section-cta:hover { opacity: 0.85; transform: translateY(-2px); }
+  .section-cta.pink   { background: var(--pink); }
+  .section-cta.yellow { background: var(--yellow); }
+  .section-cta.blue   { background: var(--blue); }
+  .section-cta.purple { background: var(--purple); }
+  .section-cta svg { width: 14px; height: 14px; }
+
+  /* ── PROJECTS ── */
+  .projects { background: var(--black); padding: 7rem 3rem; }
+  .projects-top {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 0.75rem; gap: 1rem;
+  }
+  .projects-top h2 {
+    font-family: 'Syne', sans-serif; font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 800; text-transform: uppercase; letter-spacing: -0.02em;
+  }
+  .projects-sub {
+    font-size: 0.95rem; font-weight: 300; color: var(--mid);
+    margin-bottom: 3rem; line-height: 1.5;
+  }
+
+  .project-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
+
+  .pcard {
+    position: relative; overflow: hidden;
+    aspect-ratio: 9/14; background: #111;
+  }
+  .pcard img {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+    filter: brightness(0.55) saturate(0.85);
+    transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94), filter 0.4s;
+  }
+  .pcard:hover img { transform: scale(1.04); filter: brightness(0.38) saturate(0.75); }
+
+  .pcard-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0,0,0,0.95) 0%,
+      rgba(0,0,0,0.55) 50%,
+      rgba(0,0,0,0.12) 100%
+    );
+  }
+  .pcard-body {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    justify-content: space-between;
+    padding: 1.4rem;
+  }
+  .pcard-tag {
+    display: inline-block; align-self: flex-start;
+    font-size: 0.6rem; font-weight: 600; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--black);
+    padding: 0.3rem 0.85rem; border-radius: 999px;
+  }
+  .pcard-tag.pink   { background: var(--pink); }
+  .pcard-tag.yellow { background: var(--yellow); }
+  .pcard-tag.blue   { background: var(--blue); }
+
+  .pcard-bottom { display: flex; flex-direction: column; gap: 0.65rem; }
+  .pcard-name {
+    font-family: 'Syne', sans-serif; font-size: clamp(0.9rem, 1.3vw, 1.1rem);
+    font-weight: 700; color: #fff; line-height: 1.2; letter-spacing: -0.01em;
+  }
+  .pcard-desc { font-size: 0.73rem; color: rgba(255,255,255,0.55); line-height: 1.55; }
+
+  .pcard-stats {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0.55rem 0.7rem;
+    padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.15);
+  }
+  .stat-val {
+    font-family: 'Syne', sans-serif; font-size: 1.15rem; font-weight: 700;
+    display: block; line-height: 1;
+  }
+  .stat-val.pink   { color: var(--pink); }
+  .stat-val.yellow { color: var(--yellow); }
+  .stat-val.blue   { color: var(--blue); }
+  .stat-lbl { font-size: 0.54rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.38); }
+
+  /* ── SERVICES ── */
+  .services-section { background: var(--black); padding: 0 3rem 7rem; border-top: 1px solid var(--border); }
+  .services-header { padding: 5rem 0 1rem; }
+  .services-header h2 {
+    font-family: 'Syne', sans-serif; font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 800; text-transform: uppercase; letter-spacing: -0.02em; margin-bottom: 0.6rem;
+  }
+  .services-header p {
+    font-size: 0.95rem; font-weight: 300; color: var(--mid);
+    max-width: 440px; line-height: 1.6; padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .svc-row {
+    display: grid; grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--border);
+  }
+  .svc-row.flip { direction: rtl; }
+  .svc-row.flip > * { direction: ltr; }
+
+  .svc-text {
+    padding: 4rem 3.5rem;
+    display: flex; flex-direction: column; justify-content: center;
+    border-right: 1px solid var(--border);
+  }
+  .svc-row.flip .svc-text { border-right: none; border-left: 1px solid var(--border); }
+
+  .svc-num {
+    font-family: 'Syne', sans-serif; font-size: 5rem; font-weight: 800;
+    line-height: 1; color: rgba(255,255,255,0.05); margin-bottom: 0.4rem; user-select: none;
+  }
+  .svc-title {
+    font-family: 'Syne', sans-serif; font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 800; letter-spacing: -0.02em; color: #fff; line-height: 1; margin-bottom: 1.2rem;
+  }
+  .svc-divider { width: 36px; height: 2px; margin-bottom: 1.6rem; flex-shrink: 0; }
+  .svc-divider.pink   { background: var(--pink); }
+  .svc-divider.yellow { background: var(--yellow); }
+  .svc-text p {
+    font-size: 0.92rem; font-weight: 300; color: var(--mid); line-height: 1.8; max-width: 380px;
+  }
+
+  .svc-media {
+    position: relative; overflow: hidden;
+    min-height: 420px;
+    max-height: 560px;
+  }
+  .svc-media img {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: center top;
+    display: block; filter: brightness(0.88) saturate(0.9);
+    transition: transform 0.6s ease;
+  }
+  .svc-row:hover .svc-media img { transform: scale(1.02); }
+
+  /* ── WHY ── */
+  .why { background: var(--black); padding: 7rem 3rem; border-top: 1px solid var(--border); }
+  .why-top { margin-bottom: 1rem; }
+  .why-top h2 {
+    font-family: 'Syne', sans-serif; font-size: clamp(2rem, 4.5vw, 4rem);
+    font-weight: 800; text-transform: uppercase; letter-spacing: -0.02em; line-height: 1.05; margin-bottom: 0.6rem;
+  }
+  .why-tagline { font-size: 0.95rem; font-weight: 300; font-style: italic; color: var(--mid); margin-bottom: 3rem; line-height: 1.5; }
+  .why-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
+  .why-card {
+    padding: 2.5rem 2rem; background: #0e0e0c;
+    border: 1px solid var(--border); transition: border-color 0.2s;
+  }
+  .why-card:hover { border-color: rgba(255,255,255,0.22); }
+  .why-num { font-family: 'Syne', sans-serif; font-size: 4rem; font-weight: 800; line-height: 1; margin-bottom: 1.4rem; display: block; }
+  .why-num.pink   { color: var(--pink); }
+  .why-num.yellow { color: var(--yellow); }
+  .why-num.blue   { color: var(--blue); }
+  .why-card p { font-size: 0.92rem; font-weight: 300; color: var(--mid); line-height: 1.72; }
+
+  /* ── FOOTER ── */
+  footer { background: var(--black); padding: 7rem 3rem 4rem; border-top: 1px solid var(--border); }
+  .footer-top {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    gap: 3rem; flex-wrap: wrap; margin-bottom: 5rem;
+  }
+  .footer-left h2 {
+    font-family: 'Syne', sans-serif; font-size: clamp(2.5rem, 6vw, 5.5rem);
+    font-weight: 800; text-transform: uppercase; letter-spacing: -0.02em;
+    line-height: 0.95; margin-bottom: 1rem;
+  }
+  .footer-left h2 .accent { color: var(--pink); }
+  .footer-left p { font-size: 0.95rem; font-weight: 300; color: var(--mid); max-width: 400px; line-height: 1.65; margin-bottom: 1.8rem; }
+  .footer-cta {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    font-size: 0.88rem; font-weight: 600; color: var(--black);
+    background: var(--yellow); padding: 0.85rem 2rem;
+    border-radius: 999px; text-decoration: none;
+    transition: opacity 0.2s, transform 0.15s;
+  }
+  .footer-cta:hover { opacity: 0.85; transform: translateY(-2px); }
+  .footer-right { display: flex; flex-direction: column; gap: 1.2rem; padding-top: 0.5rem; }
+  .footer-contact { display: flex; flex-direction: column; gap: 0.35rem; }
+  .footer-contact a { color: rgba(255,255,255,0.45); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+  .footer-contact a:hover { color: #fff; }
+  .footer-socials { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.5rem; }
+  .footer-socials a {
+    font-size: 0.78rem; font-weight: 500; color: var(--black);
+    padding: 0.4rem 1rem; border-radius: 999px; text-decoration: none; transition: opacity 0.2s;
+  }
+  .footer-socials a:hover { opacity: 0.8; }
+  .footer-socials a.pink   { background: var(--pink); }
+  .footer-socials a.blue   { background: var(--blue); }
+  .footer-socials a.purple { background: var(--purple); }
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 2rem; border-top: 1px solid var(--border); flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-logo { display: flex; align-items: center; gap: 0; }
+  .footer-logo-icon { height: 40px; display: block; }
+  .footer-logo-text { height: 40px; display: block; opacity: 0.85; margin-left: -6px; }
+  .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+  .footer-links a { font-size: 0.75rem; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: #fff; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-eyebrow { animation: fadeUp 0.7s ease 0.1s both; }
+  .hero-title    { animation: fadeUp 0.8s ease 0.22s both; }
+  .hero-sub      { animation: fadeUp 0.75s ease 0.32s both; }
+  .hero-pills    { animation: fadeUp 0.7s ease 0.44s both; }
+
+  @media (max-width: 900px) {
+    nav { padding: 0.8rem 1.2rem; flex-wrap: wrap; gap: 0.5rem; }
+    .nav-logo-icon { height: 36px; } .nav-logo-text { height: 22px; }
+    .hero-content { padding: 0 1.5rem 3.5rem; }
+    .projects { padding: 5rem 1.5rem; }
+    .project-row { grid-template-columns: 1fr; gap: 2px; }
+    .pcard { aspect-ratio: 4/3; }
+    .services-section { padding: 0 1.5rem 5rem; }
+    .svc-row, .svc-row.flip { grid-template-columns: 1fr; direction: ltr; }
+    .svc-media { min-height: 380px; aspect-ratio: unset; height: 420px; }
+    .svc-text { border-right: none !important; border-left: none !important; padding: 2.5rem 1.5rem; }
+    .why { padding: 5rem 1.5rem; }
+    .why-grid { grid-template-columns: 1fr; }
+    footer { padding: 5rem 1.5rem 3rem; }
+    .footer-top { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo"><img class="nav-logo-icon" src="images/logo-icon.png" alt="Echara icon"><img class="nav-logo-text" src="images/logo-text.png" alt="echara"></a>
+  <div class="nav-links">
+    <a href="#services" class="nav-pill blue">Services</a>
+    <a href="#projects" class="nav-pill purple">Work</a>
+    <a href="tel:+61424109884" class="nav-cta">Get in Touch</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <img class="hero-img" src="images/hero.jpg" alt="Echara hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Amplify your brand with Echara</span>
+    <h1 class="hero-title">We Turn<br><span class="accent">Attention</span><br>Into Foot<br>Traffic.</h1>
+    <p class="hero-sub">We turn attention into foot traffic through content and real-world activations.</p>
+    <div class="hero-pills">
+      <a href="mailto:echara.au@gmail.com" class="hero-btn pink">Start Your Project</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects" id="projects">
+  <div class="projects-top">
+    <h2>Our Projects</h2>
+  </div>
+  <p class="projects-sub">Every project is built to get people through the door.</p>
+
+  <div class="project-row">
+
+    <div class="pcard">
+      <img src="images/project-bieber.jpg" alt="Bieber Night">
+      <div class="pcard-overlay"></div>
+      <div class="pcard-body">
+        <span class="pcard-tag pink">Hospitality Activation</span>
+        <div class="pcard-bottom">
+          <h3 class="pcard-name">Bieber Night | 159 Tickets in 10 Days</h3>
+          <p class="pcard-desc">Built and launched a pre-peak club activation in just 10 days during exam season and major event competition.</p>
+          <div class="pcard-stats">
+            <div><span class="stat-val pink">159</span><span class="stat-lbl">Tickets sold</span></div>
+            <div><span class="stat-val pink">2,487</span><span class="stat-lbl">Page visits</span></div>
+            <div><span class="stat-val pink">8.3K+</span><span class="stat-lbl">Views</span></div>
+            <div><span class="stat-val pink">3.82%</span><span class="stat-lbl">Conversion rate</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard">
+      <img src="images/project-beauty.jpg" alt="Beauty & Wellness">
+      <div class="pcard-overlay"></div>
+      <div class="pcard-body">
+        <span class="pcard-tag blue">Narrative-Led UGC</span>
+        <div class="pcard-bottom">
+          <h3 class="pcard-name">Beauty &amp; Wellness Brand | Narrative-Led UGC</h3>
+          <p class="pcard-desc">Created a story-driven reel that expanded reach beyond the brand's existing audience and drove high-intent engagement.</p>
+          <div class="pcard-stats">
+            <div><span class="stat-val blue">12.5K</span><span class="stat-lbl">Views</span></div>
+            <div><span class="stat-val blue">46.4%</span><span class="stat-lbl">Non-follower reach</span></div>
+            <div><span class="stat-val blue">33</span><span class="stat-lbl">Saves</span></div>
+            <div><span class="stat-val blue">32</span><span class="stat-lbl">Shares</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pcard">
+      <img src="images/project-bespok3.jpg" alt="BESPOK3">
+      <div class="pcard-overlay"></div>
+      <div class="pcard-body">
+        <span class="pcard-tag yellow">Cultural Event Marketing</span>
+        <div class="pcard-bottom">
+          <h3 class="pcard-name">Melbourne Event Brand | City-Wide Cultural Campaign</h3>
+          <p class="pcard-desc">Executed a citywide hospitality campaign designed to drive awareness, local engagement, and venue visitation.</p>
+          <div class="pcard-stats">
+            <div><span class="stat-val yellow">2.28M</span><span class="stat-lbl">Social views</span></div>
+            <div><span class="stat-val yellow">90K</span><span class="stat-lbl">Hyperlocal impressions</span></div>
+            <div><span class="stat-val yellow">3.3K</span><span class="stat-lbl">Intent-driven clicks</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="services-header">
+    <h2>Services</h2>
+    <p>We don't guess. We create work that drives people in.</p>
+  </div>
+
+  <div class="svc-row">
+    <div class="svc-text">
+      <div class="svc-num">01</div>
+      <h3 class="svc-title">Social Media</h3>
+      <div class="svc-divider pink"></div>
+      <p>We don't chase virality. We create content that drives people to show up.</p>
+      <a href="mailto:echara.au@gmail.com" class="section-cta pink">
+        Start a project
+        <svg viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <div class="svc-media">
+      <img src="images/service-social.jpg" alt="Social Media">
+    </div>
+  </div>
+
+  <div class="svc-row flip">
+    <div class="svc-text">
+      <div class="svc-num">02</div>
+      <h3 class="svc-title">Event Activation</h3>
+      <div class="svc-divider yellow"></div>
+      <p>We turn quiet times into busy ones through day and night activations that bring people in.</p>
+      <a href="mailto:echara.au@gmail.com" class="section-cta yellow">
+        Start a project
+        <svg viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <div class="svc-media">
+      <img src="images/service-event.jpg" alt="Event Activation">
+    </div>
+  </div>
+</section>
+
+<!-- WHY ECHARA -->
+<section class="why" id="why">
+  <div class="why-top">
+    <h2>Why Echara</h2>
+    <p class="why-tagline">If it doesn't bring people in, we don't do it.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <span class="why-num pink">1</span>
+      <p>We focus on foot traffic and bookings over digital metrics</p>
+    </div>
+    <div class="why-card">
+      <span class="why-num yellow">2</span>
+      <p>We move fast and execute properly that convert attention to action</p>
+    </div>
+    <div class="why-card">
+      <span class="why-num blue">3</span>
+      <p>Everything we create has one purpose: more people through your door</p>
+    </div>
+  </div>
+  <a href="mailto:echara.au@gmail.com" class="section-cta purple">
+    Work with us
+    <svg viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-top">
+    <div class="footer-left">
+      <h2>Ready to create your <span class="accent">echo?</span></h2>
+      <p>Let's turn your brand into something people can't stop hearing about.</p>
+      <a href="mailto:echara.au@gmail.com" class="footer-cta">Make Some Noise</a>
+    </div>
+    <div class="footer-right">
+      <div class="footer-contact">
+        <a href="mailto:echara.au@gmail.com">echara.au@gmail.com</a>
+        <a href="tel:+61424109884">+61 424 109 884</a>
+      </div>
+      <div class="footer-socials">
+        <a href="#" class="pink">Instagram</a>
+        <a href="#" class="blue">LinkedIn</a>
+        <a href="#" class="purple">Facebook</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-logo"><img class="footer-logo-icon" src="images/logo-icon.png" alt="Echara icon"><img class="footer-logo-text" src="images/logo-text.png" alt="echara"></div>
+    <div class="footer-links">
+      <a href="#projects">Work</a>
+      <a href="#services">Services</a>
+      <a href="#why">Why Echara</a>
+      <a href="mailto:echara.au@gmail.com">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
